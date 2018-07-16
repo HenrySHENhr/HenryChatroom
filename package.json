@@ -1,0 +1,11 @@
+{
+  "name": "henrychatroom",
+  "version": "1.0.0",
+  "description": "Minimailist multiromm chat server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Henry",
+  "license": "ISC"
+}
