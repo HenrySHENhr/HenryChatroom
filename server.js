@@ -26,8 +26,8 @@ function serveStatic(response, cache, absPath) {
                     if (err) {
                         send404(response);
                     } else {
-                        cache[absPath] = data;
-                        console.log(absPath + ' is cached.');
+                        // cache[absPath] = data;
+                        // console.log(absPath + ' is cached.');
                         sendFile(response, absPath, data);
                     }
                 });
@@ -41,7 +41,7 @@ function serveStatic(response, cache, absPath) {
 var server = http.createServer(function(request, response) {
     var filePath = false;
     if (request.url == '/') {
-        filePath = 'static/html/index.html';
+        filePath = 'static/index.html';
     } else {
         filePath = 'static' + request.url;
     }
