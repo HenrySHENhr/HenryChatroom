@@ -11,12 +11,13 @@ function send404(response) {
 }
 
 function sendFile(response, filePath, fileContents) {
-    response.writeHead(200, {'Content-Type':mime.lookup(path.basename(filePath))});
+    response.writeHead(200, {'Content-Type': mime.getType(path.basename(filePath))});
     response.end(fileContents);
 }
 
 function serveStatic(response, cache, absPath) {
     if (cache[absPath]) {
+        console.log(absPath + ' is sent from cache.');
         sendFile(response, absPath, cache[absPath]);
     } else {
         fs.exists(absPath, function(exists) {
@@ -26,6 +27,7 @@ function serveStatic(response, cache, absPath) {
                         send404(response);
                     } else {
                         cache[absPath] = data;
+                        console.log(absPath + ' is cached.');
                         sendFile(response, absPath, data);
                     }
                 });
@@ -39,7 +41,7 @@ function serveStatic(response, cache, absPath) {
 var server = http.createServer(function(request, response) {
     var filePath = false;
     if (request.url == '/') {
-        filePath = 'static/index.html';
+        filePath = 'static/html/index.html';
     } else {
         filePath = 'static' + request.url;
     }
@@ -47,6 +49,6 @@ var server = http.createServer(function(request, response) {
     serveStatic(response, cache, absPath);
 })
 
-server.listen(3000, function() {
-    console.log('Server listening on port 3000.');
+server.listen(80, function() {
+    console.log('Server listening on port 80.');
 })

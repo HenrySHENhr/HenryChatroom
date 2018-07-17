@@ -1,1 +1,31 @@
-Hello world!
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Henry Chatroom</title>
+    <!-- <link rel='stylesheet' href='/static/css/bootstrap.css' /> -->
+    <link rel='stylesheet' href='/static/css/style.css' />
+
+</head>
+
+<body>
+    <div id="content">
+        <div id="room"></div>
+        <div id="message"></div>
+        <form id="send-form">
+            <input id="send-message" />
+            <input id="send-button" type="submit" value="Send" />
+            <div id="help">
+                <span>Chat commands:</span>
+                <ul>
+                    <li>Change nickname: <code>/nick [username]</code></li>
+                    <li>Join/Create room: <code>/join [roomname]</code></li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</body>
+<!-- <script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.js"></script> -->
+
+</html>
