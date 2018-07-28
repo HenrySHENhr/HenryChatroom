@@ -41,7 +41,8 @@ a {
 
 #send-message {
   background: inherit;
-  color: white;
+  color: green;
+  border: 1px solid green;
   width: 700px;
   margin-bottom: 1em;
   margin-right: 1em;
